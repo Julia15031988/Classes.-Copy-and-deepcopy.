@@ -1,0 +1,112 @@
+#1
+
+#creating copy of specimen
+#import copy and deepcope functions
+from copy import copy, deepcopy
+#creating a class
+class MyClass:
+    #Constructor
+    def __init__(self,name,nums):
+    #thealue of attribute name
+        self.name=name
+    #the value of attribute nums
+        self.nums=nums
+    #Methods for reflecting the values of the attributes
+    def show(self):
+    #for the name attribute
+        print("name - >" , self.name)
+    #for the nums attribute
+        print("nums - >" , self.nums)
+#creating specimen
+x=MyClass("Python", [1,2,3])
+print(" The specimen -x" )
+#the reflection of attributes of the specimen
+x.show()
+#making light copy
+y=copy(x)
+#the full copy
+z=deepcopy(x)
+print ("the specimen Y")
+y.show()
+print ("the specimen Z")
+z.show()
+
+print("Changing X attributes")
+x.name="JAVA"
+x.nums[0]=0
+print(" The specimen -x" )
+x.show()
+print ("the specimen Y")
+y.show()
+print ("the specimen Z")
+z.show()
+
+
+
+#2
+#constructor of creating the copy of specimen
+class ComplNum:
+    #constructor for creatong spesimens
+    def __init__(self, x=0, y=0):
+        if type(x)==ComplNum:
+            self.Re=x.Re
+            self.Im=x.Im
+        else:
+            self.Re=x
+            self.Im=y
+    #method for reflection class specimens
+    def show(self):
+        print ("Re is", self.Re)
+        print("Im is", self.Im)
+ # create specimen of the Class
+a=ComplNum(1,2)
+#create copy of A
+b=ComplNum(a)
+print("The specimen a is")
+a.show()
+print ("The specimen b is")
+b.show()
+print("changing attributes of specimen")
+a.Re=10
+a.Im=20
+print("The specimen a is")
+a.show()
+print ("The specimen b is")
+b.show()
+
+
+#3
+#the constructor of creating cope and list of attributes
+class MyClass:
+    #Constructor
+    def __init__(self, arg, nums=None):
+        #if arg - refering to the specimen of the class then.
+        if type(arg)==MyClass:
+            self.name=arg.name[:]
+            self.nums=arg.nums[:]
+        else:
+            self.name=arg
+            self.nums=nums
+    #method for reflecting attributes of specimen
+    def show(self):
+        print ("name - >", self.name)
+        print ("nums - >", self.nums)
+#creating specimen of the class
+X=MyClass("Python", [1,2,3])
+print ("the specimen X")
+X.show()
+#making copy of theX
+Y=MyClass(X)
+print ("the specimen Y")
+Y.show()
+
+#the attributes of specimen X changes
+print ("The attributes of x specimen changed!")
+#changing the attributes of specimen X
+X.name="Java"
+X.nums[0]=0
+
+print ("the specimen X")
+X.show()
+print ("the specimen Y")
+Y.show()
